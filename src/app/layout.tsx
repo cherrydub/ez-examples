@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import { silkscreen, ptmono, montserrat } from "@/lib/fonts";
+import { silkscreen, ptmono, montserrat, atkinson } from "@/lib/fonts";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 
@@ -20,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="!scroll-smooth overflow-hidden">
-      <body className={`${silkscreen} ${ptmono} ${montserrat}`}>
+      <body className={`${silkscreen} ${ptmono} ${montserrat} ${atkinson}`}>
         <link
           rel="stylesheet"
           href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"
@@ -39,7 +39,7 @@ export default function RootLayout({
             <Header />
 
             <main className="flex-grow overflow-y-auto p-6 FONT-montserrat">
-              {children}
+              <div className="max-w-2xl mx-auto">{children}</div>
             </main>
 
             <Footer />
