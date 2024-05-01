@@ -8,6 +8,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Grip } from "lucide-react";
+import Link from "next/link";
 
 const navRoutes = [
   { pathname: "/", name: "Home" },
@@ -30,7 +31,10 @@ export default function Navigation() {
         <DropdownMenuLabel>Navigation</DropdownMenuLabel>
         <DropdownMenuSeparator />
         {navRoutes.map((route) => (
-          <DropdownMenuItem key={route.pathname}>{route.name}</DropdownMenuItem>
+          //asChild allows this to autoclose when nav link is clicked or outside
+          <DropdownMenuItem asChild key={route.pathname}>
+            <Link href={route.pathname}>{route.name}</Link>
+          </DropdownMenuItem>
         ))}
       </DropdownMenuContent>
     </DropdownMenu>
