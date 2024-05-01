@@ -70,10 +70,6 @@
   font-family: var(--font-silkscreen);
 }
 
-.FONT-roboto {
-  font-family: var(--font-roboto);
-}
-
 .FONT-ptmono {
   font-family: var(--font-ptmono);
 }
@@ -99,22 +95,6 @@
   }
 }
 
-/* Footer.module.css */
-
-.marquee-container {
-  display: flex;
-  animation: marquee 20s linear infinite;
-}
-
-.marquee-item {
-  padding-right: 20px; /* Adjust as needed */
-}
-
-@keyframes marquee {
-  from {
-    transform: translateX(100%);
-  }
-  to {
-    transform: translateX(-100%);
-  }
+.sol-icon {
+  filter: invert();
 }
