@@ -1,5 +1,4 @@
 import Image from "next/image";
-import React from "react";
 
 export default async function CryptoPrices() {
   const response = await fetch(
@@ -22,8 +21,8 @@ export default async function CryptoPrices() {
           className="invert dark:invert-0 w-4 h-4 mt-1"
           src="/solana.png"
           alt="logo"
-          width={10}
-          height={10}
+          width={16}
+          height={16}
           title="$solana"
         />
         {"$" + data.solana.usd.toFixed(0)}
