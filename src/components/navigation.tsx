@@ -11,8 +11,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Grip, Moon, Sun } from "lucide-react";
 import Link from "next/link";
-import { ThemeToggle } from "./theme-toggle";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { Switch } from "./ui/switch";
@@ -24,6 +23,7 @@ const navRoutes = [
   { pathname: "/contact", name: "Contact" },
   { pathname: "https://blog.cherrydub.com/", name: "Blog" },
   { pathname: "/projects", name: "Projects" },
+  { pathname: "/tools", name: "Tools" },
   //   { pathname: "/fonts", name: "Fonts" },
   { pathname: "/tutorials", name: "Tutorials" },
   { pathname: "/memes", name: "Memes" },
@@ -80,6 +80,7 @@ export default function Navigation() {
         <div className="flex justify-between items-center">
           <Moon className=" h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
           <Switch
+            checked={theme === "light"}
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
           />{" "}
           <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
