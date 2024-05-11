@@ -9,11 +9,14 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Grip } from "lucide-react";
+import { Grip, Moon, Sun } from "lucide-react";
 import Link from "next/link";
 import { ThemeToggle } from "./theme-toggle";
 import { usePathname, useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
+import { Switch } from "./ui/switch";
+import { useTheme } from "next-themes";
 
 const navRoutes = [
   { pathname: "/", name: "Home" },
@@ -29,11 +32,19 @@ const navRoutes = [
 
 export default function Navigation() {
   const pathname = usePathname();
+  const { setTheme, theme } = useTheme();
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>
-        <Grip />
+        <div className="flex FONT-silkscreen">
+          <motion.span
+            whileHover={{ rotate: 360, scale: 1.2 }}
+            transition={{ type: "spring", stiffness: 500 }}
+          >
+            <Grip />
+          </motion.span>
+        </div>
       </DropdownMenuTrigger>
       <DropdownMenuContent>
         <DropdownMenuLabel>Navigation</DropdownMenuLabel>
@@ -65,9 +76,13 @@ export default function Navigation() {
           </DropdownMenuItem>
         ))}
         <br />
+
         <div className="flex justify-between items-center">
-          {/* <ContactIcons /> */}
-          <ThemeToggle />
+          <Moon className=" h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+          <Switch
+            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+          />{" "}
+          <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
         </div>
       </DropdownMenuContent>
     </DropdownMenu>

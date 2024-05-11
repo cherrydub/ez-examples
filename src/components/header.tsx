@@ -7,14 +7,16 @@ import Navigation from "./navigation";
 export default function Header() {
   return (
     <header className="flex-between border-b p-2">
-      <nav>
+      <nav className="flex-center">
         <Navigation />
+        <span className=" ml-2 FONT-silkscreen">chriscoding.xyz</span>
       </nav>
+
       <div>
-        <span className="FONT-silkscreen">Welcome to the 🐐 template</span>
+        {/* <span className="FONT-silkscreen">Welcome to the 🐐 template</span> */}
       </div>
       <div className="flex-center space-x-2 ">
-        <Avatar className="w-8 h-8 border-2 border-primary">
+        <Avatar className="w-8 h-8 border border-primary">
           <AvatarImage className="" src="https://github.com/shadcn.png" />
           <AvatarFallback>CN</AvatarFallback>
         </Avatar>

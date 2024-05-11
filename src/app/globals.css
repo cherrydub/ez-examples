@@ -19,6 +19,8 @@
     --secondary: 240 4.8% 95.9%;
     --secondary-foreground: 240 5.9% 10%;
 
+    --link-color: blue;
+
     --muted: 240 4.8% 95.9%;
     --muted-foreground: 240 3.8% 46.1%;
 
@@ -47,6 +49,8 @@
 
     --primary: 0 0% 98%;
     --primary-foreground: 240 5.9% 10%;
+
+    --link-color: lightgray;
 
     --secondary: 240 3.7% 15.9%;
     --secondary-foreground: 0 0% 98%;
@@ -101,5 +105,9 @@
 
 a {
   text-decoration: underline;
-  color: blue;
+  color: var(--link-color);
+}
+
+a:hover {
+  text-decoration: none;
 }
