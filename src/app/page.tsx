@@ -31,7 +31,7 @@ export default function Home() {
       <br />
       <p>
         So buckle up, explore the code-filled expanse, and let's embark on this
-        coding adventure together! 🚀💻
+        coding adventure together!
       </p>
       <br />
       <h5 className="text-xl font-bold">Some of my sites:</h5>
