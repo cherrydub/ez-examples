@@ -7,6 +7,15 @@ import { Input } from "@/components/ui/input";
 import { timeout } from "@/lib/utils";
 import React, { useState } from "react";
 import { toast } from "sonner";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Label } from "@/components/ui/label";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
 const dimensions = {
   desktop: { width: 900, height: 500 },
@@ -17,6 +26,7 @@ const dimensions = {
 export default function MultipleViewports() {
   const [input, setInput] = useState("");
   const [site, setSite] = useState("");
+  const [scheme, setScheme] = useState<"http://" | "https://">("http://");
   const [devices, setDevices] = useState<("desktop" | "tablet" | "mobile")[]>(
     []
   );
@@ -36,18 +46,24 @@ export default function MultipleViewports() {
     }
 
     try {
-      const url = new URL(input);
-      if (url.protocol === "http:" || url.protocol === "https:") {
-        toast.success("Site updated");
-        setSite(input);
-      } else {
-        toast.error("Invalid URL protocol. Please use http:// or https://");
+      let updatedUrl = input.trim(); // Remove any leading or trailing spaces
+
+      // Check if the user input already contains "http://" or "https://"
+      if (
+        !updatedUrl.startsWith("http://") &&
+        !updatedUrl.startsWith("https://")
+      ) {
+        // If not, add the selected scheme
+        updatedUrl = `${scheme}${updatedUrl}`;
       }
+
+      const url = new URL(updatedUrl);
+      toast.success("Site updated");
+      setSite(updatedUrl);
+      setInput("");
     } catch {
       toast.error("Invalid URL format");
     }
-
-    setInput("");
   };
 
   const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -58,16 +74,47 @@ export default function MultipleViewports() {
 
   return (
     <div className="text-center">
+      {/* <div className="bg-pink-300">
+        <p>schema: {scheme}</p>
+        <p>input: {input}</p>
+        <p>site: {site}</p>
+      </div> */}
       <div className="">
         <Badge variant="secondary">Step 1</Badge> - Enter your site URL or
         localhost
         <div className="flex space-x-2 my-2">
+          {/* <Select>
+            <SelectTrigger className="w-[125px]">
+              <SelectValue placeholder="http://" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem onClick={() => setScheme("http://")} value="http://">
+                http://
+              </SelectItem>
+              <SelectItem
+                onClick={() => setScheme("https://")}
+                value="https://"
+              >
+                https://
+              </SelectItem>
+            </SelectContent>
+          </Select> */}
+          <RadioGroup defaultValue="option-one">
+            <div className="flex items-center space-x-2">
+              <RadioGroupItem value="option-one" id="option-one" />
+              <Label htmlFor="option-one">http://</Label>
+            </div>
+            <div className="flex items-center space-x-2">
+              <RadioGroupItem value="option-two" id="option-two" />
+              <Label htmlFor="option-two">https://</Label>
+            </div>
+          </RadioGroup>
           <Input
             type="url"
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyPress={handleKeyPress}
-            placeholder="http://localhost:3000 or siteURL"
+            placeholder="localhost:3000 or siteURL"
             aria-label="Site URL input"
           />
           <Button onClick={handleSubmit}>Submit</Button>{" "}
