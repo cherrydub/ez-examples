@@ -111,3 +111,7 @@ a {
 a:hover {
   text-decoration: none;
 }
+
+.dvh-screen {
+  height: 100dvh;
+}

@@ -16,11 +16,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className="!scroll-smooth overflow-hidden">
+    <html lang="en">
       <body className={`${silkscreen} ${ptmono} ${montserrat} ${atkinson}`}>
         <link
           rel="stylesheet"
@@ -36,14 +34,16 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="flex flex-col h-screen">
-            <Header />
-
-            <main className="flex-grow overflow-y-auto p-6 FONT-montserrat">
+          <div className="flex flex-col min-h-screen">
+            <div className="fixed top-0 left-0 right-0 z-10 backdrop-blur-sm bg-pink-200/50">
+              <Header />
+            </div>
+            <main className="flex-grow pt-[56px] overflow-y-auto p-6 FONT-montserrat">
               <div className="max-w-2xl mx-auto">{children}</div>
             </main>
-
-            <Footer />
+            <div className="fixed bottom-0 left-0 right-0 z-10">
+              <Footer />
+            </div>
           </div>
         </ThemeProvider>
         <Toaster />
