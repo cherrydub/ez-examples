@@ -1,3 +1,4 @@
+import AccordianUsefulLinks from "@/components/accordian-useful-links";
 import { mySites } from "@/lib/data";
 
 export default function Home() {
@@ -45,6 +46,9 @@ export default function Home() {
           </li>
         ))}
       </ul>
+      <br />
+      <h5 className="text-xl font-bold">Useful resources:</h5>
+      <AccordianUsefulLinks />
     </main>
   );
 }

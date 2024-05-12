@@ -10,7 +10,7 @@ import { Toaster } from "sonner";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "🐐 template",
+  title: "chriscoding.xyz",
   description: "Nextjs(Typescript) + TailwindCSS + ShadCN + Zod + more...",
 };
 
