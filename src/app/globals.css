@@ -112,6 +112,7 @@ a:hover {
   text-decoration: none;
 }
 
-.dvh-screen {
-  height: 100dvh;
+.header-blur {
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
 }
