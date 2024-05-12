@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { timeout } from "@/lib/utils";
 import React, { useState } from "react";
+import { toast } from "sonner";
 
 const dimensions = {
   desktop: {
@@ -33,11 +34,16 @@ export default function ToolsPage() {
   }
 
   const handleSubmit = () => {
-    if (input.startsWith("https://")) {
+    if (!input) {
+      toast.error("Please enter a site URL");
+      return;
+    }
+    if (input.startsWith("https://") || input.startsWith("http://")) {
+      toast.success("Site updated");
       setSite(input);
     } else {
-      setSite("https://" + input);
-      setInput("https://" + input);
+      toast.error("Add https:// or http:// to your URL");
+      return;
     }
   };
 
@@ -55,7 +61,7 @@ export default function ToolsPage() {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyPress={handleKeyPress}
-          placeholder="https://localhost:3000 or siteURL"
+          placeholder="http://localhost:3000 or siteURL"
         />
         <Button onClick={handleSubmit}>Submit</Button>{" "}
       </div>
