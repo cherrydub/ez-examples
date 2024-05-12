@@ -75,49 +75,18 @@ export default function MultipleViewports() {
 
   return (
     <div className="text-center">
-      {/* <div className="bg-pink-300">
-        <p>schema: {scheme}</p>
-        <p>input: {input}</p>
-        <p>site: {site}</p>
-      </div> */}
       <div className="">
         <Badge variant="secondary">
           Step 1 {site && <span className="ml-2">✅</span>}
         </Badge>{" "}
-        - Enter your site URL or localhost
+        - Enter localhost or URL
         <div className="flex space-x-2 my-2">
-          {/* <Select>
-            <SelectTrigger className="w-[125px]">
-              <SelectValue placeholder="http://" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem onClick={() => setScheme("http://")} value="http://">
-                http://
-              </SelectItem>
-              <SelectItem
-                onClick={() => setScheme("https://")}
-                value="https://"
-              >
-                https://
-              </SelectItem>
-            </SelectContent>
-          </Select> */}
-          {/* <RadioGroup defaultValue="option-one">
-            <div className="flex items-center space-x-2">
-              <RadioGroupItem value="option-one" id="option-one" />
-              <Label htmlFor="option-one">http://</Label>
-            </div>
-            <div className="flex items-center space-x-2">
-              <RadioGroupItem value="option-two" id="option-two" />
-              <Label htmlFor="option-two">https://</Label>
-            </div>
-          </RadioGroup> */}
           <Input
             type="url"
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyPress={handleKeyPress}
-            placeholder="http://localhost:3000 or siteURL"
+            placeholder="http://localhost:3000 or URL"
             aria-label="Site URL input"
           />
           <Button onClick={handleSubmit}>Submit</Button>{" "}
