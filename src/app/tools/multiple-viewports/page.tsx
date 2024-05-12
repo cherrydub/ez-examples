@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/select";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Span } from "next/dist/trace";
 
 const dimensions = {
   desktop: { width: 900, height: 500 },
@@ -82,6 +83,7 @@ export default function MultipleViewports() {
       <div className="">
         <Badge variant="secondary">Step 1</Badge> - Enter your site URL or
         localhost
+        {site && <span className="ml-2">✅</span>}
         <div className="flex space-x-2 my-2">
           {/* <Select>
             <SelectTrigger className="w-[125px]">
@@ -99,7 +101,7 @@ export default function MultipleViewports() {
               </SelectItem>
             </SelectContent>
           </Select> */}
-          <RadioGroup defaultValue="option-one">
+          {/* <RadioGroup defaultValue="option-one">
             <div className="flex items-center space-x-2">
               <RadioGroupItem value="option-one" id="option-one" />
               <Label htmlFor="option-one">http://</Label>
@@ -108,13 +110,13 @@ export default function MultipleViewports() {
               <RadioGroupItem value="option-two" id="option-two" />
               <Label htmlFor="option-two">https://</Label>
             </div>
-          </RadioGroup>
+          </RadioGroup> */}
           <Input
             type="url"
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyPress={handleKeyPress}
-            placeholder="localhost:3000 or siteURL"
+            placeholder="http://localhost:3000 or siteURL"
             aria-label="Site URL input"
           />
           <Button onClick={handleSubmit}>Submit</Button>{" "}
@@ -139,6 +141,7 @@ export default function MultipleViewports() {
         <span className="mt-8">
           <Badge variant="secondary">Step 2</Badge> - Choose your device(s)
         </span>
+        {devices.length > 0 && <span className="ml-2">✅</span>}
         <DeviceToggle onClick={updateDevice} devices={devices} />
       </div>
       {devices?.map((device) => (
