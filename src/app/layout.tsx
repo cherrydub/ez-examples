@@ -38,8 +38,8 @@ export default function RootLayout({
             <div className="fixed top-0 left-0 right-0 z-10 header-blur bg-accent/50">
               <Header />
             </div>
-            <main className="flex-grow pt-[56px] overflow-y-auto p-6 FONT-montserrat">
-              <div className="max-w-2xl mx-auto">{children}</div>
+            <main className="flex-grow pt-[75px] overflow-y-auto p-6 FONT-montserrat">
+              <div className="max-w-2xl mx-auto pb-[50px]">{children}</div>
             </main>
             <div className="fixed bottom-0 left-0 right-0 z-10">
               <Footer />
