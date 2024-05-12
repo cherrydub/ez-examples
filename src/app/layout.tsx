@@ -35,7 +35,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <div className="flex flex-col min-h-screen">
-            <div className="fixed top-0 left-0 right-0 z-10 backdrop-blur-sm bg-pink-200/50">
+            <div className="fixed top-0 left-0 right-0 z-10 ">
               <Header />
             </div>
             <main className="flex-grow pt-[56px] overflow-y-auto p-6 FONT-montserrat">
