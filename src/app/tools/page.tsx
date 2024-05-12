@@ -1,6 +1,7 @@
 "use client";
 
 import { DeviceToggle } from "@/components/device-toggle";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { timeout } from "@/lib/utils";
@@ -56,15 +57,28 @@ export default function ToolsPage() {
 
   return (
     <div className="text-center">
-      <div className="flex space-x-2">
-        <Input
-          type="url"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          onKeyPress={handleKeyPress}
-          placeholder="http://localhost:3000 or siteURL"
-        />
-        <Button onClick={handleSubmit}>Submit</Button>{" "}
+      <div className="">
+        <div className="m-2 space-x-2 cursor-pointer">
+          <Badge onClick={() => setSite("http://localhost:3000")}>
+            localhost:3000
+          </Badge>
+          <Badge onClick={() => setSite("http://localhost:5173")}>
+            localhost:5173
+          </Badge>
+          <Badge onClick={() => setSite("https://chriscoding.xyz")}>
+            chriscoding.xyz
+          </Badge>
+        </div>
+        <div className="flex space-x-2">
+          <Input
+            type="url"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            onKeyPress={handleKeyPress}
+            placeholder="http://localhost:3000 or siteURL"
+          />
+          <Button onClick={handleSubmit}>Submit</Button>{" "}
+        </div>
       </div>
       <code>{site}</code>
 
