@@ -45,6 +45,7 @@ export default function ToolsPage() {
       toast.error("Add https:// or http:// to your URL");
       return;
     }
+    setInput("");
   };
 
   const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
