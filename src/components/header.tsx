@@ -6,7 +6,7 @@ import Navigation from "./navigation";
 
 export default function Header() {
   return (
-    <header className="flex-between border-b p-2 backdrop-blur-sm bg-pink-200/50">
+    <header className="flex-between border-b p-2 backdrop-blur-md bg-pink-200/50">
       <nav className="flex-center">
         <Navigation />
         <span className=" ml-2 FONT-silkscreen">chriscoding.xyz</span>
