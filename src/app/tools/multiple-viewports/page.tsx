@@ -81,9 +81,10 @@ export default function MultipleViewports() {
         <p>site: {site}</p>
       </div> */}
       <div className="">
-        <Badge variant="secondary">Step 1</Badge> - Enter your site URL or
-        localhost
-        {site && <span className="ml-2">✅</span>}
+        <Badge variant="secondary">
+          Step 1 {site && <span className="ml-2">✅</span>}
+        </Badge>{" "}
+        - Enter your site URL or localhost
         <div className="flex space-x-2 my-2">
           {/* <Select>
             <SelectTrigger className="w-[125px]">
@@ -139,9 +140,12 @@ export default function MultipleViewports() {
 
       <div className="m-4">
         <span className="mt-8">
-          <Badge variant="secondary">Step 2</Badge> - Choose your device(s)
+          <Badge variant="secondary">
+            Step 2 {devices.length > 0 && <span className="ml-2">✅</span>}
+          </Badge>{" "}
+          - Choose your device(s)
         </span>
-        {devices.length > 0 && <span className="ml-2">✅</span>}
+
         <DeviceToggle onClick={updateDevice} devices={devices} />
       </div>
       {devices?.map((device) => (
