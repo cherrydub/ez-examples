@@ -6,10 +6,11 @@ import LatestPush from "./latest-push";
 export default function Footer() {
   return (
     <footer className="border-t">
-      <Marquee pauseOnHover>
+      {/* <Marquee pauseOnHover>
         <CryptoPrices />
-        {/* <LatestPush /> */}
-      </Marquee>
+
+      </Marquee> */}
+      TESTING
     </footer>
   );
 }
