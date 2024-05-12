@@ -5,7 +5,7 @@ import LatestPush from "./latest-push";
 
 export default function Footer() {
   return (
-    <footer className="border-t bg-white">
+    <footer className="border-t bg-background">
       <Marquee pauseOnHover>
         <CryptoPrices />
       </Marquee>
