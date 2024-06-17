@@ -1,10 +1,10 @@
 "use client";
 
-import { DeviceToggle } from "@/components/device-toggle";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { timeout } from "@/lib/utils";
+import { DeviceToggle } from "../../../components/device-toggle";
+import { Badge } from "../../../components/ui/badge";
+import { Button } from "../../../components/ui/button";
+import { Input } from "../../../components/ui/input";
+import { timeout } from "../../../lib/utils";
 import React, { useState } from "react";
 import { toast } from "sonner";
 import {
@@ -13,9 +13,9 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
-import { Label } from "@/components/ui/label";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+} from "../../../components/ui/select";
+import { Label } from "../../../components/ui/label";
+import { RadioGroup, RadioGroupItem } from "../../../components/ui/radio-group";
 import { Span } from "next/dist/trace";
 
 const dimensions = {

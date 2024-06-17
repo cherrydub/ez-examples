@@ -1,7 +1,6 @@
 import React from "react";
 import Marquee from "react-fast-marquee";
-import CryptoPrices from "./crypto-prices";
-import LatestPush from "./latest-push";
+import CryptoPrices from "@/components/crypto-prices";
 
 export default function Footer() {
   return (

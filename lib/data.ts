@@ -13,7 +13,7 @@ export const mySites = [
   },
   {
     name: "GitHub",
-    url: "https://github.com/cherrydub",
+    url: "https://github.com/chriscodingxyz",
     description: "My GitHub profile",
   },
   {

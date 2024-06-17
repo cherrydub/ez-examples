@@ -67,7 +67,7 @@
     --input: 240 3.7% 15.9%;
     --ring: 240 4.9% 83.9%;
 
-    --link-color: lightgray;
+    --link-color: yellow;
     --blur-background: green/50;
   }
 }
@@ -106,7 +106,7 @@
 }
 
 a {
-  text-decoration: underline;
+  /* text-decoration: underline; */
   color: var(--link-color);
 }
 

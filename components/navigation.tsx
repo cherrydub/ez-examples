@@ -14,7 +14,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
-import { Switch } from "./ui/switch";
+import { Switch } from "@/components//ui/switch";
 import { useTheme } from "next-themes";
 
 const navRoutes = [
