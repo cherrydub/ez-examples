@@ -1,11 +1,7 @@
-import React from "react";
+import { getData } from "@/actions/todoActions";
+import Todos from "@/components/Todos";
 
-export default function TodosPage() {
-  return (
-    <div>
-      will make a todo list with server actions, drizzle orm, zod validation,
-      all that good shit
-      <p></p>
-    </div>
-  );
+export default async function Home() {
+  const data = await getData();
+  return <Todos todos={data} />;
 }
