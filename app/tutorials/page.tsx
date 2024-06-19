@@ -7,6 +7,7 @@ export default function TutorialsPage() {
       get ready to learn bitch
       <p>
         <Link href="/tutorials/todos">todos</Link>
+        <Link href="/tutorials/comparisons">comparisons</Link>
       </p>
     </div>
   );

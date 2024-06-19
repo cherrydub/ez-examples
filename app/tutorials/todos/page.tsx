@@ -1,8 +1,14 @@
-import { getData } from "@/actions/todoActions";
-import Todos from "@/components/Todos";
+import { getDataAction } from "@/actions/todoActions";
+import Todos from "@/components/tutorials/todos/Todos";
 
-export default async function Home() {
-  const data = await getData();
+export const dynamic = "force-dynamic";
+
+export default async function Page() {
+  console.log("*****--top--******-------");
+  console.log(`revalidated path before ${Date.now()}`);
+  const data = await getDataAction();
+  console.log(`revalidated path after ${Date.now()}:`, data);
+  console.log("*****--bottom******-------");
+
   return <Todos todos={data} />;
 }
-//added .env in vercel

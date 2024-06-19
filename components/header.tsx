@@ -23,7 +23,7 @@ export default function Header() {
       <div className="flex-center space-x-2 ">
         <a href="https://twitter.com/chriscodingxyz" target="_blank">
           <Avatar className="w-8 h-8 border border-primary hover:scale-110 transition">
-            <AvatarImage src="punk1534.png" />
+            <AvatarImage src="/punk1534.png" />
             <AvatarFallback>🍒</AvatarFallback>
           </Avatar>
         </a>

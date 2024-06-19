@@ -1,6 +1,12 @@
 "use client";
+import { KeyboardEvent } from "react";
 import { ChangeEvent, FC, useState } from "react";
 import { todoType } from "@/types/todoType";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { CircleX, Pencil, Save, Trash2 } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { toast } from "sonner";
 
 interface Props {
   todo: todoType;
@@ -54,62 +60,73 @@ const Todo: FC<Props> = ({
 
   // Event handler for deleting a todo item
   const handleDelete = () => {
-    if (confirm("Are you sure you want to delete this todo?")) {
-      deleteTodoItem(todo.id);
+    toast("Are you sure you want to delete this item?", {
+      action: {
+        label: "Yes delete",
+        onClick: () => deleteTodoItem(todo.id),
+      },
+    });
+  };
+
+  // Event handler for key down
+  const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      editing ? handleSave() : handleEdit();
     }
   };
 
   // Rendering the Todo component
   return (
-    <div className="flex items-center gap-2 p-4 border-gray-200 border-solid border rounded-lg">
+    <div className="flex items-center gap-2 p-2 border-gray-200 border-solid border rounded-lg">
       {/* Checkbox for marking the todo as done */}
-      <input
+      <Input
         type="checkbox"
         className="text-blue-200 rounded-sm h-4 w-4"
         checked={isDone}
         onChange={handleIsDone}
       />
       {/* Input field for todo text */}
-      <input
+      <Input
         type="text"
         value={text}
+        onClick={() => setEditing(true)}
         onChange={handleTextChange}
+        onKeyDown={handleKeyDown}
         readOnly={!editing}
-        className={`${
+        className={cn(
+          "outline-none read-only:border-transparent focus:border border-gray-200 rounded px-2 py-1 w-full",
+          todo.done ? "line-through" : "",
+          editing && "border border-yellow-400"
+        )}
+      />
+
+      {/* className={`${
           todo.done ? "line-through" : ""
         } outline-none read-only:border-transparent focus:border border-gray-200 rounded px-2 py-1 w-full`}
-      />
+      /> */}
       {/* Action buttons for editing, saving, canceling, and deleting */}
       <div className="flex gap-1 ml-auto">
         {editing ? (
-          <button
-            onClick={handleSave}
-            className="bg-green-600 text-green-50 rounded px-2 w-14 py-1"
-          >
-            Save
-          </button>
+          <Button onClick={handleSave} className="" variant={"secondary"}>
+            <Save size={16} strokeWidth={1.5} />
+          </Button>
         ) : (
-          <button
-            onClick={handleEdit}
-            className="bg-blue-400 text-blue-50 rounded w-14 px-2 py-1"
-          >
-            Edit
-          </button>
+          <Button onClick={handleEdit} className="" variant={"outline"}>
+            <Pencil size={16} strokeWidth={1.5} />
+          </Button>
         )}
         {editing ? (
-          <button
+          <Button
             onClick={handleCancel}
-            className="bg-red-400 w-16 text-red-50 rounded px-2 py-1"
+            variant={"default"}
+            // className="bg-red-400 w-16 text-red-50 rounded px-2 py-1"
           >
-            Close
-          </button>
+            <CircleX size={16} strokeWidth={1.5} />
+          </Button>
         ) : (
-          <button
-            onClick={handleDelete}
-            className="bg-red-400 w-16 text-red-50 rounded px-2 py-1"
-          >
-            Delete
-          </button>
+          <Button onClick={handleDelete} variant={"destructive"}>
+            <Trash2 strokeWidth={1.5} size={16} />
+          </Button>
         )}
       </div>
     </div>

@@ -39,7 +39,7 @@ export default function RootLayout({
               <Header />
             </div>
             <main className="flex-grow pt-[75px] overflow-y-auto p-6 FONT-montserrat">
-              <div className="max-w-2xl mx-auto pb-[50px]">{children}</div>
+              <div className="max-w-4xl mx-auto pb-[50px]">{children}</div>
             </main>
             <div className="fixed bottom-0 left-0 right-0 z-10">
               <Footer />
