@@ -11,7 +11,7 @@ const ComparisonSection = ({ title, prismaCode, drizzleCode }: any) => (
   <div className="mb-20 0">
     <h2 className="text-2xl font-semibold text-center">{title}</h2>
     <div className="flex flex-col md:flex-row">
-      <div className="w-full md:w-1/2 p-2">
+      <div className="w-full md:w-1/2">
         <h3 className="text-center mb-2 flex flex-center font-bold">
           <SiPrisma className="inline mr-2" />
           Prisma
@@ -32,7 +32,7 @@ const ComparisonSection = ({ title, prismaCode, drizzleCode }: any) => (
           </SyntaxHighlighter>
         </div>
       </div>
-      <div className="w-full md:w-1/2 p-2">
+      <div className="w-full md:w-1/2">
         <h3 className="text-center mb-2 font-bold italic">
           {" "}
           <Image
@@ -66,7 +66,7 @@ const ComparisonSection = ({ title, prismaCode, drizzleCode }: any) => (
 );
 
 const PrismaDrizzle = () => (
-  <div className="p-4">
+  <div className="">
     <ComparisonSection
       title="Schema Definition"
       prismaCode={prismadrizzlecomparison.schemaDefinition.prisma}
